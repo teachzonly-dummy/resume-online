@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Portfolio Builder Kit — Build Your Portfolio Website With AI, No Coding</title>
+<meta name="description" content="Create a recruiter-ready portfolio website in minutes using simple AI prompts. Built for Malaysian students, fresh grads &amp; internship seekers. No coding required.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav__inner container">
+    <a href="#top" class="nav__brand">
+      <span class="nav__brand-mark">&lt;/&gt;</span> Portfolio<span class="accent">.kit</span>
+    </a>
+    <nav class="nav__links" id="navLinks">
+      <a href="#how-it-works">How it works</a>
+      <a href="#included">What's inside</a>
+      <a href="#faq">FAQ</a>
+      <a href="#pricing" class="nav__cta">Get the kit — RM29</a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ 1. HERO ============ -->
+  <section class="hero" id="hero">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="container hero__grid">
+      <div class="hero__copy" data-reveal>
+        <p class="eyebrow">FOR STUDENTS &amp; FRESH GRADS IN MALAYSIA</p>
+        <h1 class="hero__title">Build Your Professional Portfolio Website <span class="accent">Using AI</span></h1>
+        <p class="hero__subtitle">Create a recruiter-ready portfolio in minutes using simple AI prompts. No coding experience required.</p>
+        <div class="hero__actions">
+          <a href="#pricing" class="btn btn--primary btn--lg">Get Instant Access — RM29</a>
+          <a href="#how-it-works" class="btn btn--ghost btn--lg">See how it works ↓</a>
+        </div>
+        <div class="hero__trust">
+          <span>⚡ Instant digital download</span>
+          <span>🇲🇾 Made for the Malaysian job market</span>
+          <span>🔒 Secure checkout</span>
+        </div>
+      </div>
+
+      <div class="hero__visual" data-reveal>
+        <div class="console" id="console">
+          <div class="console__bar">
+            <span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span>
+            <span class="console__title">ai-prompt.txt</span>
+          </div>
+          <div class="console__body">
+            <p class="console__line console__line--label">$ paste into ChatGPT / Claude</p>
+            <p class="console__line console__typed" id="typedPrompt"></p>
+            <span class="console__cursor" id="cursor">▌</span>
+          </div>
+          <div class="console__result" id="consoleResult">
+            <div class="mock-site" aria-hidden="true">
+              <div class="mock-site__nav"></div>
+              <div class="mock-site__hero">
+                <div class="mock-site__avatar"></div>
+                <div class="mock-site__lines">
+                  <span></span><span></span><span></span>
+                </div>
+              </div>
+              <div class="mock-site__cards">
+                <div></div><div></div><div></div>
+              </div>
+            </div>
+            <p class="mock-site__caption">Your portfolio, generated ✨</p>
+          </div>
+        </div>
+        <div class="badge-float badge-float--1">✓ No coding</div>
+        <div class="badge-float badge-float--2">Live in &lt; 1 hour</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2. PROBLEM ============ -->
+  <section class="section section--light" id="problem">
+    <div class="container">
+      <p class="eyebrow eyebrow--dark" data-reveal>THE STRUGGLE IS REAL</p>
+      <h2 class="section__title" data-reveal>Sound familiar?</h2>
+      <div class="problem-grid">
+        <div class="problem-card" data-reveal>
+          <span class="problem-card__icon">😵</span>
+          <p>"I don't know how to create a portfolio."</p>
+        </div>
+        <div class="problem-card" data-reveal>
+          <span class="problem-card__icon">📄</span>
+          <p>"My resume looks ordinary — like everyone else's."</p>
+        </div>
+        <div class="problem-card" data-reveal>
+          <span class="problem-card__icon">💻</span>
+          <p>"I don't know coding, so I can't build a website."</p>
+        </div>
+        <div class="problem-card" data-reveal>
+          <span class="problem-card__icon">🤔</span>
+          <p>"I don't even know how to use GitHub to publish anything."</p>
+        </div>
+      </div>
+      <p class="problem-outro" data-reveal>You're not alone — and you don't need to learn to code to fix this.</p>
+    </div>
+  </section>
+
+  <!-- ============ 3. SOLUTION ============ -->
+  <section class="section section--dark" id="solution">
+    <div class="container solution__grid">
+      <div data-reveal>
+        <p class="eyebrow">THE FIX</p>
+        <h2 class="section__title section__title--light">Everything you need, already prompt-engineered for you</h2>
+        <p class="section__lead">The AI Portfolio Builder Kit hands you the exact prompts, template and steps to go from "no portfolio" to "published website" — even if you've never written a line of code.</p>
+      </div>
+      <ul class="check-list" data-reveal>
+        <li><span class="check">✓</span> Ready-to-use AI prompts</li>
+        <li><span class="check">✓</span> Professional portfolio template</li>
+        <li><span class="check">✓</span> Step-by-step guide, screenshot by screenshot</li>
+        <li><span class="check">✓</span> GitHub publishing guide (free hosting)</li>
+        <li><span class="check">✓</span> Written for total beginners — zero jargon</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 4. HOW IT WORKS ============ -->
+  <section class="section section--light" id="how-it-works">
+    <div class="container">
+      <p class="eyebrow eyebrow--dark" data-reveal>THE PROCESS</p>
+      <h2 class="section__title" data-reveal>From blank page to published portfolio in 3 steps</h2>
+      <div class="steps">
+        <div class="step" data-reveal>
+          <span class="step__tag">STEP_01</span>
+          <h3>Copy the AI prompt</h3>
+          <p>Grab the ready-made prompt from your kit — no prompt-writing skills needed.</p>
+        </div>
+        <div class="step" data-reveal>
+          <span class="step__tag">STEP_02</span>
+          <h3>Customize your information</h3>
+          <p>Drop in your name, skills and projects. The AI writes and structures it for you.</p>
+        </div>
+        <div class="step" data-reveal>
+          <span class="step__tag">STEP_03</span>
+          <h3>Publish your portfolio online</h3>
+          <p>Follow the GitHub guide to put your site live with a real, shareable link.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. WHAT'S INCLUDED ============ -->
+  <section class="section section--dark" id="included">
+    <div class="container">
+      <p class="eyebrow">WHAT'S INSIDE</p>
+      <h2 class="section__title section__title--light" data-reveal>Everything in the kit</h2>
+      <div class="product-grid">
+        <div class="product-card" data-reveal>
+          <span class="product-card__mono">01</span>
+          <h3>AI Portfolio Generator Prompt</h3>
+          <p>The core prompt that turns your background into a full portfolio structure — instantly.</p>
+        </div>
+        <div class="product-card" data-reveal>
+          <span class="product-card__mono">02</span>
+          <h3>Portfolio Enhancement Prompt</h3>
+          <p>Polish tone, wording and layout so your portfolio reads like a professional built it.</p>
+        </div>
+        <div class="product-card" data-reveal>
+          <span class="product-card__mono">03</span>
+          <h3>GitHub Deployment Guide</h3>
+          <p>Clear, beginner-friendly steps to publish your site online — completely free.</p>
+        </div>
+        <div class="product-card" data-reveal>
+          <span class="product-card__mono">04</span>
+          <h3>Beginner Checklist</h3>
+          <p>A simple checklist so you never miss a step, from first prompt to final live link.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. WHO IS THIS FOR ============ -->
+  <section class="section section--light" id="who">
+    <div class="container">
+      <p class="eyebrow eyebrow--dark" data-reveal>BUILT FOR</p>
+      <h2 class="section__title" data-reveal>Who this kit is for</h2>
+      <div class="who-grid">
+        <div class="who-card" data-reveal><span>✓</span> Students</div>
+        <div class="who-card" data-reveal><span>✓</span> Fresh graduates</div>
+        <div class="who-card" data-reveal><span>✓</span> Developers</div>
+        <div class="who-card" data-reveal><span>✓</span> Career switchers</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="section section--dark" id="testimonials">
+    <div class="container">
+      <p class="eyebrow">RESULTS</p>
+      <h2 class="section__title section__title--light" data-reveal>What early users are saying</h2>
+      <div class="testimonial-grid">
+        <blockquote class="testimonial-card" data-reveal>
+          <p>"I finally have a portfolio link I'm not embarrassed to put on my resume."</p>
+          <footer>— Placeholder, Final-year Student</footer>
+        </blockquote>
+        <blockquote class="testimonial-card" data-reveal>
+          <p>"Took me one evening. I have zero coding background."</p>
+          <footer>— Placeholder, Fresh Graduate</footer>
+        </blockquote>
+        <blockquote class="testimonial-card" data-reveal>
+          <p>"Used it for my internship applications — got way more replies."</p>
+          <footer>— Placeholder, Internship Seeker</footer>
+        </blockquote>
+      </div>
+      <div class="trust-badges" data-reveal>
+        <span class="trust-badge">🔒 Secure Payment</span>
+        <span class="trust-badge">⚡ Instant Download</span>
+        <span class="trust-badge">🇲🇾 Local Support</span>
+        <span class="trust-badge">↩ Beginner Friendly</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. FAQ ============ -->
+  <section class="section section--light" id="faq">
+    <div class="container container--narrow">
+      <p class="eyebrow eyebrow--dark" data-reveal>QUESTIONS</p>
+      <h2 class="section__title" data-reveal>Frequently asked questions</h2>
+      <div class="accordion" data-reveal>
+        <div class="accordion__item">
+          <button class="accordion__trigger">Do I need coding experience? <span>+</span></button>
+          <div class="accordion__panel"><p>No — this is beginner friendly. Every step is written for people who have never coded before.</p></div>
+        </div>
+        <div class="accordion__item">
+          <button class="accordion__trigger">Do I need paid software? <span>+</span></button>
+          <div class="accordion__panel"><p>No, you can start with free AI tools and free hosting on GitHub.</p></div>
+        </div>
+        <div class="accordion__item">
+          <button class="accordion__trigger">Can I use this for my resume? <span>+</span></button>
+          <div class="accordion__panel"><p>Yes — link your published portfolio directly on your resume, LinkedIn and internship applications.</p></div>
+        </div>
+        <div class="accordion__item">
+          <button class="accordion__trigger">How long does it take to finish? <span>+</span></button>
+          <div class="accordion__panel"><p>Most people go from zero to a published portfolio in under an hour.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 8. FINAL CTA ============ -->
+  <section class="final-cta" id="final-cta">
+    <div class="container final-cta__inner" data-reveal>
+      <h2>Your resume gets you noticed. Your portfolio gets you hired.</h2>
+      <p>Start building your professional online presence today — before the next application deadline.</p>
+      <a href="#pricing" class="btn btn--primary btn--lg">Get the AI Portfolio Builder Kit — RM29</a>
+    </div>
+  </section>
+
+  <!-- ============ 9. PAYMENT / PRICING ============ -->
+  <section class="section section--dark pricing" id="pricing">
+    <div class="container container--narrow">
+      <div class="pricing-card" data-reveal>
+        <p class="eyebrow">LIMITED-TIME LAUNCH PRICE</p>
+        <h2 class="pricing-card__title">AI Portfolio Builder Kit</h2>
+        <div class="pricing-card__price"><span class="pricing-card__old">RM99</span> RM29</div>
+        <p class="pricing-card__sub">One-time payment · Instant digital download · Lifetime access</p>
+        <ul class="pricing-card__list">
+          <li>✓ AI Portfolio Generator Prompt</li>
+          <li>✓ Portfolio Enhancement Prompt</li>
+          <li>✓ GitHub Deployment Guide</li>
+          <li>✓ Beginner Checklist</li>
+        </ul>
+
+        <!-- BCL Payment Embed Placeholder -->
+        <div id="bcl-payment-form" data-url="https://teachz-digital.com/embed/form/online-resume-guidelines"></div>
+        <script src="https://bcl.my/js/bc-encrypted-payment-embed.js"></script>
+
+        <p class="pricing-card__guarantee">🔒 Secure checkout &nbsp;·&nbsp; ⚡ Access delivered instantly</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <p>© <span id="year"></span> Portfolio.kit — AI Portfolio Builder Kit. Made for job seekers in Malaysia 🇲🇾</p>
+  </div>
+</footer>
+
+<div class="sticky-cta" id="stickyCta">
+  <a href="#pricing" class="btn btn--primary">Get the kit — RM29</a>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
