@@ -3,299 +3,372 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Portfolio Builder Kit — Build Your Portfolio Website With AI, No Coding</title>
-<meta name="description" content="Create a recruiter-ready portfolio website in minutes using simple AI prompts. Built for Malaysian students, fresh grads &amp; internship seekers. No coding required.">
+<title>Siti Aisyah Binti Abu Bakar — IT Application Support</title>
+<meta name="description" content="Portfolio of Siti Aisyah Binti Abu Bakar, IT Application Support specialist with experience in ERP systems, API integrations and technical operations.">
+
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ============ NAV ============ -->
+<!-- ===== Progress bar (fills as you scroll) ===== -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ===== Navigation ===== -->
 <header class="nav" id="nav">
-  <div class="nav__inner container">
-    <a href="#top" class="nav__brand">
-      <span class="nav__brand-mark">&lt;/&gt;</span> Portfolio<span class="accent">.kit</span>
-    </a>
-    <nav class="nav__links" id="navLinks">
-      <a href="#how-it-works">How it works</a>
-      <a href="#included">What's inside</a>
-      <a href="#faq">FAQ</a>
-      <a href="#pricing" class="nav__cta">Get the kit — RM29</a>
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">SA<span class="dot">.</span></a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#experience" class="nav-link">Experience</a>
+      <a href="#education" class="nav-link">Education</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#contact" class="nav-link">Contact</a>
     </nav>
-    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+
+    <div class="nav-status">
+      <span class="status-dot"></span>
+      <span class="mono">open_to_work</span>
+    </div>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
-<main id="top">
-
-  <!-- ============ 1. HERO ============ -->
-  <section class="hero" id="hero">
-    <div class="hero__bg" aria-hidden="true"></div>
-    <div class="container hero__grid">
-      <div class="hero__copy" data-reveal>
-        <p class="eyebrow">FOR STUDENTS &amp; FRESH GRADS IN MALAYSIA</p>
-        <h1 class="hero__title">Build Your Professional Portfolio Website <span class="accent">Using AI</span></h1>
-        <p class="hero__subtitle">Create a recruiter-ready portfolio in minutes using simple AI prompts. No coding experience required.</p>
-        <div class="hero__actions">
-          <a href="#pricing" class="btn btn--primary btn--lg">Get Instant Access — RM29</a>
-          <a href="#how-it-works" class="btn btn--ghost btn--lg">See how it works ↓</a>
-        </div>
-        <div class="hero__trust">
-          <span>⚡ Instant digital download</span>
-          <span>🇲🇾 Made for the Malaysian job market</span>
-          <span>🔒 Secure checkout</span>
-        </div>
-      </div>
-
-      <div class="hero__visual" data-reveal>
-        <div class="console" id="console">
-          <div class="console__bar">
-            <span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span>
-            <span class="console__title">ai-prompt.txt</span>
-          </div>
-          <div class="console__body">
-            <p class="console__line console__line--label">$ paste into ChatGPT / Claude</p>
-            <p class="console__line console__typed" id="typedPrompt"></p>
-            <span class="console__cursor" id="cursor">▌</span>
-          </div>
-          <div class="console__result" id="consoleResult">
-            <div class="mock-site" aria-hidden="true">
-              <div class="mock-site__nav"></div>
-              <div class="mock-site__hero">
-                <div class="mock-site__avatar"></div>
-                <div class="mock-site__lines">
-                  <span></span><span></span><span></span>
-                </div>
-              </div>
-              <div class="mock-site__cards">
-                <div></div><div></div><div></div>
-              </div>
-            </div>
-            <p class="mock-site__caption">Your portfolio, generated ✨</p>
-          </div>
-        </div>
-        <div class="badge-float badge-float--1">✓ No coding</div>
-        <div class="badge-float badge-float--2">Live in &lt; 1 hour</div>
+<!-- ===== Hero ===== -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="eyebrow mono">// application_support · erp · api_integration</p>
+      <h1 class="hero-name">Siti Aisyah<br>Binti Abu Bakar</h1>
+      <h2 class="hero-title">IT Application Support Specialist</h2>
+      <p class="hero-intro">
+        Detail-oriented IT professional who keeps enterprise systems running — from ERP
+        administration to API integrations. I turn support tickets into stable processes and
+        stakeholders into confident system users, across logistics and enterprise environments.
+      </p>
+      <div class="hero-actions">
+        <a href="assets/Resume_Siti_Aisyah_Binti_Abu_Bakar.pdf" class="btn btn-primary" download>Download Résumé</a>
+        <a href="#contact" class="btn btn-outline">Contact Me</a>
       </div>
     </div>
-  </section>
 
-  <!-- ============ 2. PROBLEM ============ -->
-  <section class="section section--light" id="problem">
-    <div class="container">
-      <p class="eyebrow eyebrow--dark" data-reveal>THE STRUGGLE IS REAL</p>
-      <h2 class="section__title" data-reveal>Sound familiar?</h2>
-      <div class="problem-grid">
-        <div class="problem-card" data-reveal>
-          <span class="problem-card__icon">😵</span>
-          <p>"I don't know how to create a portfolio."</p>
-        </div>
-        <div class="problem-card" data-reveal>
-          <span class="problem-card__icon">📄</span>
-          <p>"My resume looks ordinary — like everyone else's."</p>
-        </div>
-        <div class="problem-card" data-reveal>
-          <span class="problem-card__icon">💻</span>
-          <p>"I don't know coding, so I can't build a website."</p>
-        </div>
-        <div class="problem-card" data-reveal>
-          <span class="problem-card__icon">🤔</span>
-          <p>"I don't even know how to use GitHub to publish anything."</p>
-        </div>
+    <div class="hero-photo-wrap">
+      <div class="status-card mono">
+        <span class="status-dot"></span> system_status: <strong>available</strong>
       </div>
-      <p class="problem-outro" data-reveal>You're not alone — and you don't need to learn to code to fix this.</p>
+      <img src="assets/profile.png" alt="Portrait of Siti Aisyah Binti Abu Bakar" class="hero-photo">
     </div>
-  </section>
+  </div>
+  <a href="#about" class="scroll-cue" aria-label="Scroll down">
+    <span></span>
+  </a>
+</section>
 
-  <!-- ============ 3. SOLUTION ============ -->
-  <section class="section section--dark" id="solution">
-    <div class="container solution__grid">
-      <div data-reveal>
-        <p class="eyebrow">THE FIX</p>
-        <h2 class="section__title section__title--light">Everything you need, already prompt-engineered for you</h2>
-        <p class="section__lead">The AI Portfolio Builder Kit hands you the exact prompts, template and steps to go from "no portfolio" to "published website" — even if you've never written a line of code.</p>
+<!-- ===== About ===== -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <p class="eyebrow mono">01 · about</p>
+    <h2 class="section-title">About Me</h2>
+    <div class="about-grid">
+      <p class="about-text">
+        I'm an IT professional based in Klang, Selangor, with hands-on experience supporting
+        ERP systems, resolving application issues, and coordinating API integrations between
+        enterprise platforms and e-commerce partners. My background spans enterprise IT
+        support and logistics operations, where I've learned that reliable systems are built
+        on clear communication as much as clean code.
+      </p>
+      <p class="about-text">
+        Day to day, I audit workflows, test system changes before they go live, document
+        issues so they don't recur, and support stakeholders who depend on these systems
+        working correctly. I'm currently completing a Master's in Information Technology at
+        Universiti Teknologi MARA (UiTM), and I'm looking to grow further in an application
+        support or systems-focused role where I can keep solving real operational problems.
+      </p>
+      <div class="about-facts">
+        <div class="fact">
+          <span class="fact-label mono">location</span>
+          <span class="fact-value">Klang, Selangor, Malaysia</span>
+        </div>
+        <div class="fact">
+          <span class="fact-label mono">focus</span>
+          <span class="fact-value">ERP · API Integration · IT Audit</span>
+        </div>
+        <div class="fact">
+          <span class="fact-label mono">languages</span>
+          <span class="fact-value">Malay (Native), English (Fluent)</span>
+        </div>
+        <div class="fact">
+          <span class="fact-label mono">studying</span>
+          <span class="fact-value">MSc Information Technology, UiTM (2026)</span>
+        </div>
       </div>
-      <ul class="check-list" data-reveal>
-        <li><span class="check">✓</span> Ready-to-use AI prompts</li>
-        <li><span class="check">✓</span> Professional portfolio template</li>
-        <li><span class="check">✓</span> Step-by-step guide, screenshot by screenshot</li>
-        <li><span class="check">✓</span> GitHub publishing guide (free hosting)</li>
-        <li><span class="check">✓</span> Written for total beginners — zero jargon</li>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Skills ===== -->
+<section class="section section-alt" id="skills">
+  <div class="section-inner">
+    <p class="eyebrow mono">02 · skills</p>
+    <h2 class="section-title">Skills</h2>
+
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3 class="skill-group-title">Technical</h3>
+        <div class="tag-list">
+          <span class="tag mono">ERP Systems</span>
+          <span class="tag mono">API Integration</span>
+          <span class="tag mono">System Testing</span>
+          <span class="tag mono">IT Audit</span>
+          <span class="tag mono">Technical Support</span>
+          <span class="tag mono">Database Basics</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3 class="skill-group-title">Tools &amp; Software</h3>
+        <div class="tag-list">
+          <span class="tag mono">Google Workspace</span>
+          <span class="tag mono">Microsoft Excel</span>
+          <span class="tag mono">ERP Platforms</span>
+          <span class="tag mono">E-Commerce Platforms</span>
+          <span class="tag mono">Canva</span>
+          <span class="tag mono">Figma (Handoff)</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3 class="skill-group-title">Professional</h3>
+        <div class="tag-list">
+          <span class="tag mono">Effective Communication</span>
+          <span class="tag mono">Problem Solving</span>
+          <span class="tag mono">Time Management</span>
+          <span class="tag mono">Attention to Detail</span>
+          <span class="tag mono">Collaboration</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Experience ===== -->
+<section class="section" id="experience">
+  <div class="section-inner">
+    <p class="eyebrow mono">03 · experience</p>
+    <h2 class="section-title">Work Experience</h2>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-meta mono">Nov 2025 — Feb 2026</div>
+        <div class="timeline-content">
+          <h3>IT Application Support</h3>
+          <p class="timeline-org">Zitron (M) Enterprise Sdn Bhd</p>
+          <ul>
+            <li>Administer and support the company's ERP system, ensuring system availability, data accuracy, and smooth daily operations.</li>
+            <li>Provide first-level IT application support to internal stakeholders via phone, email, and chat, resolving issues efficiently and escalating when needed.</li>
+            <li>Conduct ERP functional and process testing to validate workflows, identify defects, and ensure system reliability before and after updates.</li>
+            <li>Document test cases, system issues, and resolution outcomes to support troubleshooting, audits, and continuous system improvement.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta mono">Nov 2022 — Aug 2025</div>
+        <div class="timeline-content">
+          <h3>Sales Enabler Executive</h3>
+          <p class="timeline-org">Ninja Van Logistics Sdn Bhd</p>
+          <ul>
+            <li>Executed BAU operations, including IT audits and technical support, ensuring smooth daily operations for shippers and internal stakeholders.</li>
+            <li>Facilitated shipper API integrations by conducting IT audits and streamlining onboarding, reducing integration delays and errors.</li>
+            <li>Provided technical support via WhatsApp, resolving e-commerce platform integration issues promptly and improving shipper satisfaction.</li>
+            <li>Delivered training sessions on a newly developed integration website, increasing internal adoption and operational efficiency.</li>
+            <li>Collaborated with regional teams to review and resolve duplicate account cases, ensuring compliance and timely approval of API access.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta mono">Sept 2022 — Oct 2022</div>
+        <div class="timeline-content">
+          <h3>Telemarketing Executive</h3>
+          <p class="timeline-org">UTS Sdn Bhd</p>
+          <ul>
+            <li>Promoted affordable medical card insurance solutions, increasing product awareness and lead engagement.</li>
+            <li>Educated prospective customers on long-term financial and health protection, building trust through clear communication.</li>
+            <li>Managed customer objections professionally, applying persuasive techniques to improve conversion rates.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta mono">Mar 2022 — Aug 2022</div>
+        <div class="timeline-content">
+          <h3>Backend System Developer Intern</h3>
+          <p class="timeline-org">Internship</p>
+          <ul>
+            <li>Improved administration panel usability by enhancing UI components for a more intuitive user experience.</li>
+            <li>Designed and implemented database tables to support system functionality and data integrity.</li>
+            <li>Developed administration panel features based on Figma designs, ensuring accurate implementation of functional and visual requirements.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Education ===== -->
+<section class="section section-alt" id="education">
+  <div class="section-inner">
+    <p class="eyebrow mono">04 · education</p>
+    <h2 class="section-title">Education</h2>
+
+    <div class="edu-grid">
+      <div class="edu-card">
+        <span class="mono edu-date">Expected Aug 2026</span>
+        <h3>Master's in Information Technology</h3>
+        <p>Universiti Teknologi MARA (UiTM)</p>
+      </div>
+      <div class="edu-card">
+        <span class="mono edu-date">Dec 2022</span>
+        <h3>Bachelor of Information Technology (Business Computing), Hons</h3>
+        <p>Universiti Malaysia Sabah Kampus Antarabangsa Labuan (UMSKAL)</p>
+      </div>
+      <div class="edu-card">
+        <span class="mono edu-date">Aug 2018</span>
+        <h3>Matriculation Certificate — Computer Science</h3>
+        <p>Kolej Matrikulasi Johor (KMJ)</p>
+      </div>
+      <div class="edu-card">
+        <span class="mono edu-date">Dec 2016</span>
+        <h3>Sijil Pelajaran Malaysia</h3>
+        <p>SM Sains Banting (BASIS)</p>
+      </div>
+    </div>
+
+    <div class="achievements">
+      <h3 class="achievements-title">Achievements &amp; Involvement</h3>
+      <ul class="achievements-list">
+        <li><strong>Dean's List Award</strong> — MSc Information Technology, Oct 2024</li>
+        <li><strong>Social Media Executive Committee (EXCO)</strong> — MSc IT Club, Universiti Teknologi MARA (UiTM)</li>
       </ul>
     </div>
-  </section>
-
-  <!-- ============ 4. HOW IT WORKS ============ -->
-  <section class="section section--light" id="how-it-works">
-    <div class="container">
-      <p class="eyebrow eyebrow--dark" data-reveal>THE PROCESS</p>
-      <h2 class="section__title" data-reveal>From blank page to published portfolio in 3 steps</h2>
-      <div class="steps">
-        <div class="step" data-reveal>
-          <span class="step__tag">STEP_01</span>
-          <h3>Copy the AI prompt</h3>
-          <p>Grab the ready-made prompt from your kit — no prompt-writing skills needed.</p>
-        </div>
-        <div class="step" data-reveal>
-          <span class="step__tag">STEP_02</span>
-          <h3>Customize your information</h3>
-          <p>Drop in your name, skills and projects. The AI writes and structures it for you.</p>
-        </div>
-        <div class="step" data-reveal>
-          <span class="step__tag">STEP_03</span>
-          <h3>Publish your portfolio online</h3>
-          <p>Follow the GitHub guide to put your site live with a real, shareable link.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 5. WHAT'S INCLUDED ============ -->
-  <section class="section section--dark" id="included">
-    <div class="container">
-      <p class="eyebrow">WHAT'S INSIDE</p>
-      <h2 class="section__title section__title--light" data-reveal>Everything in the kit</h2>
-      <div class="product-grid">
-        <div class="product-card" data-reveal>
-          <span class="product-card__mono">01</span>
-          <h3>AI Portfolio Generator Prompt</h3>
-          <p>The core prompt that turns your background into a full portfolio structure — instantly.</p>
-        </div>
-        <div class="product-card" data-reveal>
-          <span class="product-card__mono">02</span>
-          <h3>Portfolio Enhancement Prompt</h3>
-          <p>Polish tone, wording and layout so your portfolio reads like a professional built it.</p>
-        </div>
-        <div class="product-card" data-reveal>
-          <span class="product-card__mono">03</span>
-          <h3>GitHub Deployment Guide</h3>
-          <p>Clear, beginner-friendly steps to publish your site online — completely free.</p>
-        </div>
-        <div class="product-card" data-reveal>
-          <span class="product-card__mono">04</span>
-          <h3>Beginner Checklist</h3>
-          <p>A simple checklist so you never miss a step, from first prompt to final live link.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 6. WHO IS THIS FOR ============ -->
-  <section class="section section--light" id="who">
-    <div class="container">
-      <p class="eyebrow eyebrow--dark" data-reveal>BUILT FOR</p>
-      <h2 class="section__title" data-reveal>Who this kit is for</h2>
-      <div class="who-grid">
-        <div class="who-card" data-reveal><span>✓</span> Students</div>
-        <div class="who-card" data-reveal><span>✓</span> Fresh graduates</div>
-        <div class="who-card" data-reveal><span>✓</span> Developers</div>
-        <div class="who-card" data-reveal><span>✓</span> Career switchers</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ TESTIMONIALS ============ -->
-  <section class="section section--dark" id="testimonials">
-    <div class="container">
-      <p class="eyebrow">RESULTS</p>
-      <h2 class="section__title section__title--light" data-reveal>What early users are saying</h2>
-      <div class="testimonial-grid">
-        <blockquote class="testimonial-card" data-reveal>
-          <p>"I finally have a portfolio link I'm not embarrassed to put on my resume."</p>
-          <footer>— Placeholder, Final-year Student</footer>
-        </blockquote>
-        <blockquote class="testimonial-card" data-reveal>
-          <p>"Took me one evening. I have zero coding background."</p>
-          <footer>— Placeholder, Fresh Graduate</footer>
-        </blockquote>
-        <blockquote class="testimonial-card" data-reveal>
-          <p>"Used it for my internship applications — got way more replies."</p>
-          <footer>— Placeholder, Internship Seeker</footer>
-        </blockquote>
-      </div>
-      <div class="trust-badges" data-reveal>
-        <span class="trust-badge">🔒 Secure Payment</span>
-        <span class="trust-badge">⚡ Instant Download</span>
-        <span class="trust-badge">🇲🇾 Local Support</span>
-        <span class="trust-badge">↩ Beginner Friendly</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 7. FAQ ============ -->
-  <section class="section section--light" id="faq">
-    <div class="container container--narrow">
-      <p class="eyebrow eyebrow--dark" data-reveal>QUESTIONS</p>
-      <h2 class="section__title" data-reveal>Frequently asked questions</h2>
-      <div class="accordion" data-reveal>
-        <div class="accordion__item">
-          <button class="accordion__trigger">Do I need coding experience? <span>+</span></button>
-          <div class="accordion__panel"><p>No — this is beginner friendly. Every step is written for people who have never coded before.</p></div>
-        </div>
-        <div class="accordion__item">
-          <button class="accordion__trigger">Do I need paid software? <span>+</span></button>
-          <div class="accordion__panel"><p>No, you can start with free AI tools and free hosting on GitHub.</p></div>
-        </div>
-        <div class="accordion__item">
-          <button class="accordion__trigger">Can I use this for my resume? <span>+</span></button>
-          <div class="accordion__panel"><p>Yes — link your published portfolio directly on your resume, LinkedIn and internship applications.</p></div>
-        </div>
-        <div class="accordion__item">
-          <button class="accordion__trigger">How long does it take to finish? <span>+</span></button>
-          <div class="accordion__panel"><p>Most people go from zero to a published portfolio in under an hour.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 8. FINAL CTA ============ -->
-  <section class="final-cta" id="final-cta">
-    <div class="container final-cta__inner" data-reveal>
-      <h2>Your resume gets you noticed. Your portfolio gets you hired.</h2>
-      <p>Start building your professional online presence today — before the next application deadline.</p>
-      <a href="#pricing" class="btn btn--primary btn--lg">Get the AI Portfolio Builder Kit — RM29</a>
-    </div>
-  </section>
-
-  <!-- ============ 9. PAYMENT / PRICING ============ -->
-  <section class="section section--dark pricing" id="pricing">
-    <div class="container container--narrow">
-      <div class="pricing-card" data-reveal>
-        <p class="eyebrow">LIMITED-TIME LAUNCH PRICE</p>
-        <h2 class="pricing-card__title">AI Portfolio Builder Kit</h2>
-        <div class="pricing-card__price"><span class="pricing-card__old">RM99</span> RM29</div>
-        <p class="pricing-card__sub">One-time payment · Instant digital download · Lifetime access</p>
-        <ul class="pricing-card__list">
-          <li>✓ AI Portfolio Generator Prompt</li>
-          <li>✓ Portfolio Enhancement Prompt</li>
-          <li>✓ GitHub Deployment Guide</li>
-          <li>✓ Beginner Checklist</li>
-        </ul>
-
-        <!-- BCL Payment Embed Placeholder -->
-        <div id="bcl-payment-form" data-url="https://teachz-digital.com/embed/form/online-resume-guidelines"></div>
-        <script src="https://bcl.my/js/bc-encrypted-payment-embed.js"></script>
-
-        <p class="pricing-card__guarantee">🔒 Secure checkout &nbsp;·&nbsp; ⚡ Access delivered instantly</p>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="container footer__inner">
-    <p>© <span id="year"></span> Portfolio.kit — AI Portfolio Builder Kit. Made for job seekers in Malaysia 🇲🇾</p>
   </div>
+</section>
+
+<!-- ===== Projects ===== -->
+<section class="section" id="projects">
+  <div class="section-inner">
+    <p class="eyebrow mono">05 · projects</p>
+    <h2 class="section-title">Projects &amp; Key Work</h2>
+    <p class="section-sub">Selected initiatives from my day-to-day work in application support and technical operations.</p>
+
+    <div class="projects-grid">
+
+      <article class="project-card">
+        <div class="project-top">
+          <h3>ERP Testing &amp; Support Framework</h3>
+          <span class="project-link-empty mono">internal project</span>
+        </div>
+        <p>Built a repeatable process for validating ERP workflows before and after system updates —
+        covering functional testing, defect logging, and resolution documentation — to reduce
+        post-update incidents and speed up troubleshooting.</p>
+        <div class="tag-list">
+          <span class="tag mono">ERP</span>
+          <span class="tag mono">QA Testing</span>
+          <span class="tag mono">Documentation</span>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-top">
+          <h3>Shipper API Integration Onboarding</h3>
+          <span class="project-link-empty mono">internal project</span>
+        </div>
+        <p>Streamlined the onboarding process for shippers integrating via API by running structured
+        IT audits, cutting integration delays and errors, and delivering training on a new
+        integration website to boost adoption.</p>
+        <div class="tag-list">
+          <span class="tag mono">API</span>
+          <span class="tag mono">IT Audit</span>
+          <span class="tag mono">Onboarding</span>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-top">
+          <h3>Admin Panel UI Enhancement</h3>
+          <span class="project-link-empty mono">internal project</span>
+        </div>
+        <p>Rebuilt key admin panel components from Figma designs and restructured supporting
+        database tables, improving usability and data integrity for internal system users.</p>
+        <div class="tag-list">
+          <span class="tag mono">UI Development</span>
+          <span class="tag mono">Database Design</span>
+          <span class="tag mono">Figma</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Contact ===== -->
+<section class="section section-alt" id="contact">
+  <div class="section-inner">
+    <p class="eyebrow mono">06 · contact</p>
+    <h2 class="section-title">Get In Touch</h2>
+    <p class="section-sub">Open to application support and systems-focused opportunities — feel free to reach out.</p>
+
+    <div class="contact-grid">
+      <a href="mailto:aisyahbakar24@outlook.com" class="contact-card">
+        <span class="contact-label mono">email</span>
+        <span class="contact-value">aisyahbakar24@outlook.com</span>
+      </a>
+      <a href="tel:+60133133063" class="contact-card">
+        <span class="contact-label mono">phone</span>
+        <span class="contact-value">+60 13 313 3063</span>
+      </a>
+      <a href="https://www.linkedin.com/in/siti-aisyah-abu-bakar-9b0b2521b/" target="_blank" rel="noopener" class="contact-card">
+        <span class="contact-label mono">linkedin</span>
+        <span class="contact-value">siti-aisyah-abu-bakar</span>
+      </a>
+      <div class="contact-card contact-card-static">
+        <span class="contact-label mono">location</span>
+        <span class="contact-value">Klang, Selangor, Malaysia</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#top" class="nav-logo">SA<span class="dot">.</span></a>
+      <p class="mono footer-tag">application_support · always_online</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="mailto:aisyahbakar24@outlook.com">Email</a>
+      <a href="https://www.linkedin.com/in/siti-aisyah-abu-bakar-9b0b2521b/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="tel:+60133133063">Phone</a>
+    </div>
+  </div>
+  <p class="footer-copy">© <span id="year"></span> Siti Aisyah Binti Abu Bakar. All rights reserved.</p>
 </footer>
 
-<div class="sticky-cta" id="stickyCta">
-  <a href="#pricing" class="btn btn--primary">Get the kit — RM29</a>
-</div>
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
 <script src="script.js"></script>
 </body>
