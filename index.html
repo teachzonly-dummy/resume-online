@@ -4,372 +4,673 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Siti Aisyah Binti Abu Bakar — IT Application Support</title>
-<meta name="description" content="Portfolio of Siti Aisyah Binti Abu Bakar, IT Application Support specialist with experience in ERP systems, API integrations and technical operations.">
-
-<!-- Fonts -->
+<meta name="description" content="IT Application Support specialist — ERP systems, API integrations, technical operations.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0E17;
+    --panel:#10151F;
+    --panel-2:#141B29;
+    --line:#212A3B;
+    --text:#E7ECF5;
+    --muted:#7C8AA5;
+    --muted-2:#4E5A72;
+    --accent:#3DDC97;
+    --accent-dim:#1F3B30;
+    --blue:#5AB8FF;
+    --amber:#F2B84B;
+    --mono:'JetBrains Mono', monospace;
+    --disp:'Space Grotesk', sans-serif;
+    --body:'Inter', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--body);
+    line-height:1.6;
+    overflow-x:hidden;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:64px 64px;
+    background-position:center top;
+    background-attachment:fixed;
+  }
+  body::before{
+    content:'';
+    position:fixed; inset:0;
+    background:radial-gradient(ellipse 80% 50% at 50% 0%, rgba(61,220,151,0.06), transparent 60%),
+               radial-gradient(ellipse 60% 40% at 100% 100%, rgba(90,184,255,0.05), transparent 60%);
+    pointer-events:none;
+    z-index:0;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  ::selection{background:var(--accent); color:#0A0E17;}
 
-<link rel="stylesheet" href="style.css">
+  /* ---------- Focus & a11y ---------- */
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;}
+  .skip-link{
+    position:absolute; left:1rem; top:-4rem; z-index:200;
+    background:var(--accent); color:#0A0E17; padding:.6rem 1rem; border-radius:6px;
+    font-family:var(--mono); font-size:.85rem; font-weight:600; transition:top .2s ease;
+  }
+  .skip-link:focus{top:1rem;}
+
+  section{ position:relative; z-index:1; padding:7rem 1.5rem; max-width:1100px; margin:0 auto; }
+  @media (max-width:640px){ section{ padding:5rem 1.25rem; } }
+
+  .eyebrow{
+    font-family:var(--mono); font-size:.78rem; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--accent); display:flex; align-items:center; gap:.6rem; margin-bottom:1rem;
+  }
+  .eyebrow::before{ content:''; width:6px; height:6px; border-radius:50%; background:var(--accent); box-shadow:0 0 8px var(--accent); }
+
+  h1,h2,h3,h4{ font-family:var(--disp); font-weight:600; letter-spacing:-0.01em; }
+  .section-title{ font-size:clamp(1.8rem, 4vw, 2.6rem); margin-bottom:.6rem; }
+  .section-sub{ color:var(--muted); max-width:52ch; margin-bottom:3rem; font-size:1.02rem; }
+
+  .status-pill{
+    display:inline-flex; align-items:center; gap:.4rem;
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.06em;
+    padding:.28rem .6rem; border-radius:100px; border:1px solid var(--line);
+    text-transform:uppercase;
+  }
+  .status-pill.active{ color:var(--accent); border-color:var(--accent-dim); background:rgba(61,220,151,0.07); }
+  .status-pill.done{ color:var(--muted); }
+  .status-pill .dot{ width:6px; height:6px; border-radius:50%; background:currentColor; }
+  .status-pill.active .dot{ animation:blink 1.6s ease-in-out infinite; }
+  @keyframes blink{ 0%,100%{ opacity:1; } 50%{ opacity:.25; } }
+
+  /* ---------- Reveal ---------- */
+  .reveal{ opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ---------- Nav ---------- */
+  .navdock{
+    position:fixed; right:1.6rem; top:50%; transform:translateY(-50%);
+    display:flex; flex-direction:column; gap:1.05rem; z-index:100;
+  }
+  .navdock a{
+    width:10px; height:10px; border-radius:50%; background:var(--muted-2);
+    position:relative; transition:background .25s ease, transform .25s ease;
+  }
+  .navdock a.active{ background:var(--accent); transform:scale(1.3); box-shadow:0 0 10px rgba(61,220,151,.6); }
+  .navdock a .label{
+    position:absolute; right:22px; top:50%; transform:translateY(-50%);
+    font-family:var(--mono); font-size:.7rem; color:var(--muted); white-space:nowrap;
+    opacity:0; transition:opacity .2s ease; pointer-events:none; letter-spacing:.05em;
+  }
+  .navdock a:hover .label, .navdock a:focus-visible .label{ opacity:1; }
+  @media (max-width: 860px){ .navdock{ display:none; } }
+
+  .topbar{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:1.1rem 1.6rem; backdrop-filter:blur(10px);
+    background:linear-gradient(to bottom, rgba(10,14,23,.85), transparent);
+  }
+  .topbar .brand{ font-family:var(--mono); font-size:.85rem; color:var(--muted); letter-spacing:.05em; }
+  .topbar .brand strong{ color:var(--text); }
+  .progress-track{
+    position:fixed; top:0; left:0; right:0; height:2px; z-index:101; background:transparent;
+  }
+  .progress-bar{ height:100%; width:0%; background:linear-gradient(90deg, var(--accent), var(--blue)); transition:width .1s linear; }
+  .topbar .cta{
+    font-family:var(--mono); font-size:.78rem; border:1px solid var(--line); padding:.5rem 1rem; border-radius:100px;
+    color:var(--text); transition:border-color .2s ease, background .2s ease;
+  }
+  .topbar .cta:hover{ border-color:var(--accent); background:rgba(61,220,151,.06); }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    min-height:100svh; display:flex; flex-direction:column; justify-content:center;
+    max-width:1100px; margin:0 auto; padding:6rem 1.5rem 4rem;
+  }
+  .terminal{
+    font-family:var(--mono); font-size:.85rem; color:var(--muted); margin-bottom:2rem;
+    border:1px solid var(--line); border-radius:8px; padding:.9rem 1.1rem; background:var(--panel);
+    max-width:fit-content;
+  }
+  .terminal .caret{ display:inline-block; width:7px; height:1em; background:var(--accent); vertical-align:text-bottom; animation:blink 1s steps(2) infinite; margin-left:2px; }
+  .hero h1{
+    font-size:clamp(2.4rem, 7vw, 4.6rem); line-height:1.05; letter-spacing:-0.02em;
+  }
+  .hero h1 .hi{ color:var(--muted); font-weight:400; font-size:.5em; display:block; margin-bottom:.3em; }
+  .hero h1 .name-grad{
+    background:linear-gradient(90deg, var(--accent), var(--blue));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .role-rotator{
+    font-family:var(--mono); font-size:clamp(1rem,2.4vw,1.3rem); color:var(--blue);
+    margin-top:1.4rem; min-height:1.6em;
+  }
+  .hero-sub{ color:var(--muted); max-width:56ch; margin-top:1.4rem; font-size:1.05rem; }
+  .hero-actions{ display:flex; gap:.9rem; margin-top:2.4rem; flex-wrap:wrap; }
+  .btn{
+    font-family:var(--mono); font-size:.85rem; padding:.85rem 1.5rem; border-radius:8px;
+    display:inline-flex; align-items:center; gap:.5rem; transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+    cursor:pointer; border:1px solid var(--line);
+  }
+  .btn-primary{ background:var(--accent); color:#06110C; border-color:var(--accent); font-weight:600; }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 8px 24px rgba(61,220,151,.25); }
+  .btn-ghost{ color:var(--text); background:transparent; }
+  .btn-ghost:hover{ border-color:var(--blue); color:var(--blue); }
+  .scroll-hint{ position:absolute; bottom:2rem; left:50%; transform:translateX(-50%); font-family:var(--mono); font-size:.7rem; color:var(--muted-2); letter-spacing:.1em; display:flex; flex-direction:column; align-items:center; gap:.5rem; }
+  .scroll-hint .line{ width:1px; height:34px; background:linear-gradient(var(--muted-2), transparent); animation:scrolldown 1.8s ease-in-out infinite; }
+  @keyframes scrolldown{ 0%{ transform:scaleY(0); transform-origin:top; } 50%{ transform:scaleY(1); transform-origin:top; } 51%{ transform-origin:bottom; } 100%{ transform:scaleY(0); transform-origin:bottom; } }
+
+  /* ---------- About ---------- */
+  .about-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:3rem; align-items:start; }
+  @media (max-width:860px){ .about-grid{ grid-template-columns:1fr; } }
+  .about-photo{
+    border-radius:14px; overflow:hidden; border:1px solid var(--line);
+    aspect-ratio:4/4.6; position:relative; background:var(--panel);
+  }
+  .about-photo img{ width:100%; height:100%; object-fit:cover; }
+  .about-photo .frame-tag{
+    position:absolute; bottom:.9rem; left:.9rem; right:.9rem;
+    font-family:var(--mono); font-size:.7rem; color:#fff; background:rgba(10,14,23,.55);
+    backdrop-filter:blur(6px); padding:.5rem .7rem; border-radius:6px; letter-spacing:.04em;
+    border:1px solid rgba(255,255,255,.12);
+  }
+  .about-text p{ color:var(--muted); margin-bottom:1.1rem; font-size:1.03rem; }
+  .about-text strong{ color:var(--text); font-weight:600; }
+  .stat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:2rem; }
+  .stat-card{ border:1px solid var(--line); border-radius:10px; padding:1.1rem; background:var(--panel); }
+  .stat-card .num{ font-family:var(--disp); font-size:1.9rem; color:var(--accent); font-weight:700; }
+  .stat-card .lbl{ font-family:var(--mono); font-size:.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; margin-top:.3rem; }
+  @media (max-width:520px){ .stat-grid{ grid-template-columns:1fr 1fr; } }
+
+  /* ---------- Experience (process log) ---------- */
+  .proc-list{ border:1px solid var(--line); border-radius:12px; overflow:hidden; background:var(--panel); }
+  .proc{ border-bottom:1px solid var(--line); }
+  .proc:last-child{ border-bottom:none; }
+  .proc-head{
+    display:flex; align-items:center; gap:1rem; padding:1.3rem 1.4rem; cursor:pointer;
+    background:transparent; border:none; width:100%; text-align:left; color:inherit; font:inherit;
+    transition:background .2s ease;
+  }
+  .proc-head:hover{ background:var(--panel-2); }
+  .proc-id{ font-family:var(--mono); color:var(--muted-2); font-size:.8rem; width:3.2rem; flex-shrink:0; }
+  .proc-main{ flex:1; min-width:0; }
+  .proc-role{ font-family:var(--disp); font-size:1.12rem; font-weight:600; }
+  .proc-meta{ font-family:var(--mono); font-size:.78rem; color:var(--muted); margin-top:.25rem; display:flex; gap:.7rem; flex-wrap:wrap; }
+  .proc-dates{ font-family:var(--mono); font-size:.75rem; color:var(--muted); white-space:nowrap; flex-shrink:0; }
+  .proc-chevron{ width:18px; height:18px; flex-shrink:0; transition:transform .25s ease; color:var(--muted); }
+  .proc.open .proc-chevron{ transform:rotate(180deg); color:var(--accent); }
+  .proc-body{ max-height:0; overflow:hidden; transition:max-height .35s ease; }
+  .proc.open .proc-body{ max-height:600px; }
+  .proc-body-in{ padding:0 1.4rem 1.5rem 4.3rem; }
+  .proc-body-in ul{ list-style:none; display:flex; flex-direction:column; gap:.6rem; }
+  .proc-body-in li{ color:var(--muted); font-size:.95rem; padding-left:1.1rem; position:relative; }
+  .proc-body-in li::before{ content:'›'; position:absolute; left:0; color:var(--accent); font-family:var(--mono); }
+  @media (max-width:640px){ .proc-head{ flex-wrap:wrap; } .proc-dates{ order:3; width:100%; margin-left:3.2rem; } .proc-body-in{ padding-left:1.4rem; } }
+
+  /* ---------- Skills ---------- */
+  .skills-wrap{ display:flex; flex-direction:column; gap:2.2rem; }
+  .skill-group-title{ font-family:var(--mono); font-size:.75rem; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; margin-bottom:1rem; }
+  .chip-row{ display:flex; flex-wrap:wrap; gap:.7rem; }
+  .chip{
+    font-family:var(--mono); font-size:.85rem; padding:.55rem 1rem; border-radius:8px;
+    border:1px solid var(--line); background:var(--panel); display:flex; align-items:center; gap:.55rem;
+    transition:border-color .2s ease, transform .2s ease;
+  }
+  .chip:hover{ border-color:var(--accent); transform:translateY(-2px); }
+  .chip .bar{ width:34px; height:4px; border-radius:2px; background:var(--line); overflow:hidden; }
+  .chip .bar span{ display:block; height:100%; background:var(--accent); border-radius:2px; }
+
+  .core-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); gap:.8rem; }
+  .core-card{ border:1px solid var(--line); border-radius:10px; padding:1rem; background:var(--panel); text-align:center; }
+  .core-card .ic{ font-family:var(--disp); font-size:1.3rem; color:var(--blue); margin-bottom:.4rem; }
+  .core-card .cl{ font-size:.85rem; color:var(--muted); }
+
+  /* ---------- Education / Achievements ---------- */
+  .split-grid{ display:grid; grid-template-columns:1fr 1fr; gap:3rem; }
+  @media (max-width:860px){ .split-grid{ grid-template-columns:1fr; gap:3.5rem; } }
+  .edu-item{ border-left:2px solid var(--line); padding:0 0 1.6rem 1.3rem; position:relative; }
+  .edu-item::before{ content:''; position:absolute; left:-6px; top:.3rem; width:10px; height:10px; border-radius:50%; background:var(--bg); border:2px solid var(--accent); }
+  .edu-item:last-child{ padding-bottom:0; }
+  .edu-deg{ font-family:var(--disp); font-weight:600; font-size:1.02rem; }
+  .edu-school{ color:var(--muted); font-size:.92rem; margin-top:.2rem; }
+  .edu-date{ font-family:var(--mono); font-size:.75rem; color:var(--accent); margin-top:.35rem; }
+
+  .badge-list{ display:flex; flex-direction:column; gap:1rem; }
+  .badge{ display:flex; gap:1rem; border:1px solid var(--line); border-radius:10px; padding:1rem 1.2rem; background:var(--panel); align-items:flex-start; }
+  .badge .icon{ width:38px; height:38px; border-radius:8px; background:rgba(242,184,75,.1); border:1px solid rgba(242,184,75,.25); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--amber); font-size:1.1rem; }
+  .badge .t{ font-weight:600; font-size:.98rem; }
+  .badge .d{ color:var(--muted); font-size:.87rem; margin-top:.2rem; }
+
+  /* ---------- Contact ---------- */
+  .contact-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; }
+  .contact-card{
+    border:1px solid var(--line); border-radius:10px; padding:1.2rem; background:var(--panel);
+    display:flex; align-items:center; gap:.9rem; transition:border-color .2s ease, transform .2s ease; position:relative;
+  }
+  .contact-card:hover{ border-color:var(--blue); transform:translateY(-2px); }
+  .contact-card .ic{ width:40px; height:40px; border-radius:8px; background:var(--panel-2); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--blue); }
+  .contact-card .lbl{ font-family:var(--mono); font-size:.68rem; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; }
+  .contact-card .val{ font-size:.92rem; margin-top:.15rem; word-break:break-word; }
+  .copy-btn{
+    margin-left:auto; background:transparent; border:1px solid var(--line); border-radius:6px;
+    width:30px; height:30px; display:flex; align-items:center; justify-content:center; color:var(--muted); cursor:pointer; flex-shrink:0;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  .copy-btn:hover{ border-color:var(--accent); color:var(--accent); }
+  .copy-btn.copied{ color:var(--accent); border-color:var(--accent); }
+
+  footer{ text-align:center; padding:3rem 1.5rem 4rem; color:var(--muted-2); font-family:var(--mono); font-size:.78rem; position:relative; z-index:1; }
+  footer .sig{ color:var(--muted); margin-top:.4rem; }
+
+  .toast{
+    position:fixed; bottom:1.6rem; left:50%; transform:translateX(-50%) translateY(20px);
+    background:var(--panel-2); border:1px solid var(--accent); color:var(--text);
+    font-family:var(--mono); font-size:.8rem; padding:.7rem 1.2rem; border-radius:8px;
+    opacity:0; pointer-events:none; transition:opacity .25s ease, transform .25s ease; z-index:200;
+  }
+  .toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+</style>
 </head>
 <body>
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
 
-<!-- ===== Progress bar (fills as you scroll) ===== -->
-<div class="scroll-progress" id="scrollProgress"></div>
-
-<!-- ===== Navigation ===== -->
-<header class="nav" id="nav">
-  <div class="nav-inner">
-    <a href="#top" class="nav-logo">SA<span class="dot">.</span></a>
-
-    <nav class="nav-links" id="navLinks">
-      <a href="#about" class="nav-link">About</a>
-      <a href="#skills" class="nav-link">Skills</a>
-      <a href="#experience" class="nav-link">Experience</a>
-      <a href="#education" class="nav-link">Education</a>
-      <a href="#projects" class="nav-link">Projects</a>
-      <a href="#contact" class="nav-link">Contact</a>
-    </nav>
-
-    <div class="nav-status">
-      <span class="status-dot"></span>
-      <span class="mono">open_to_work</span>
-    </div>
-
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
+<header class="topbar">
+  <span class="brand"><strong>S. AISYAH</strong> // it_application_support</span>
+  <a href="#contact" class="cta">Get in touch</a>
 </header>
 
-<!-- ===== Hero ===== -->
-<section class="hero" id="top">
-  <div class="hero-inner">
-    <div class="hero-text">
-      <p class="eyebrow mono">// application_support · erp · api_integration</p>
-      <h1 class="hero-name">Siti Aisyah<br>Binti Abu Bakar</h1>
-      <h2 class="hero-title">IT Application Support Specialist</h2>
-      <p class="hero-intro">
-        Detail-oriented IT professional who keeps enterprise systems running — from ERP
-        administration to API integrations. I turn support tickets into stable processes and
-        stakeholders into confident system users, across logistics and enterprise environments.
-      </p>
-      <div class="hero-actions">
-        <a href="assets/Resume.pdf" class="btn btn-primary" download>Download Resume</a>
-        <a href="#contact" class="btn btn-outline">Contact Me</a>
-      </div>
-    </div>
+<nav class="navdock" aria-label="Section navigation">
+  <a href="#hero" data-label="Home" aria-label="Home"><span class="label">home</span></a>
+  <a href="#about" data-label="About" aria-label="About"><span class="label">about</span></a>
+  <a href="#experience" data-label="Experience" aria-label="Experience"><span class="label">experience</span></a>
+  <a href="#skills" data-label="Skills" aria-label="Skills"><span class="label">skills</span></a>
+  <a href="#education" data-label="Education" aria-label="Education"><span class="label">education</span></a>
+  <a href="#contact" data-label="Contact" aria-label="Contact"><span class="label">contact</span></a>
+</nav>
 
-    <div class="hero-photo-wrap">
-      <div class="status-card mono">
-        <span class="status-dot"></span> system_status: <strong>available</strong>
-      </div>
-      <img src="assets/Profile.png" alt="Portrait of Siti Aisyah Binti Abu Bakar" class="hero-photo">
-    </div>
+<main id="main">
+
+<section id="hero" class="hero">
+  <div class="terminal" role="status" aria-live="polite">
+    <span id="bootText">$ initializing profile</span><span class="caret" aria-hidden="true"></span>
   </div>
-  <a href="#about" class="scroll-cue" aria-label="Scroll down">
-    <span></span>
-  </a>
+  <h1>
+    <span class="hi">Hello, I'm</span>
+    <span class="name-grad">Siti Aisyah</span>
+  </h1>
+  <div class="role-rotator" id="roleRotator" aria-live="polite"></div>
+  <p class="hero-sub">Detail-oriented IT professional supporting ERP systems, API integrations, and technical operations across logistics and enterprise environments — turning support tickets into stable, trusted systems.</p>
+  <div class="hero-actions">
+    <a href="resume.pdf" download class="btn btn-primary">↓ Download Resume</a>
+    <a href="#experience" class="btn btn-ghost">View Experience</a>
+    <a href="#contact" class="btn btn-ghost">Contact</a>
+  </div>
+  <div class="scroll-hint" aria-hidden="true"><span>SCROLL</span><span class="line"></span></div>
 </section>
 
-<!-- ===== About ===== -->
-<section class="section" id="about">
-  <div class="section-inner">
-    <p class="eyebrow mono">01 · about</p>
-    <h2 class="section-title">About Me</h2>
-    <div class="about-grid">
-      <p class="about-text">
-        I'm an IT professional based in Klang, Selangor, with hands-on experience supporting
-        ERP systems, resolving application issues, and coordinating API integrations between
-        enterprise platforms and e-commerce partners. My background spans enterprise IT
-        support and logistics operations, where I've learned that reliable systems are built
-        on clear communication as much as clean code.
-      </p>
-      <p class="about-text">
-        Day to day, I audit workflows, test system changes before they go live, document
-        issues so they don't recur, and support stakeholders who depend on these systems
-        working correctly. I'm currently completing a Master's in Information Technology at
-        Universiti Teknologi MARA (UiTM), and I'm looking to grow further in an application
-        support or systems-focused role where I can keep solving real operational problems.
-      </p>
-      <div class="about-facts">
-        <div class="fact">
-          <span class="fact-label mono">location</span>
-          <span class="fact-value">Klang, Selangor, Malaysia</span>
-        </div>
-        <div class="fact">
-          <span class="fact-label mono">focus</span>
-          <span class="fact-value">ERP · API Integration · IT Audit</span>
-        </div>
-        <div class="fact">
-          <span class="fact-label mono">languages</span>
-          <span class="fact-value">Malay (Native), English (Fluent)</span>
-        </div>
-        <div class="fact">
-          <span class="fact-label mono">studying</span>
-          <span class="fact-value">MSc Information Technology, UiTM (2026)</span>
-        </div>
+<section id="about">
+  <div class="eyebrow">01 / About</div>
+  <h2 class="section-title reveal">Who's behind the ticket queue</h2>
+  <p class="section-sub reveal">A quick systems check on the person, not just the resume.</p>
+  <div class="about-grid">
+    <div class="about-photo reveal">
+      <img src="profile.png" alt="Portrait of Siti Aisyah Binti Abu Bakar" loading="lazy">
+      <div class="frame-tag">STATUS: ACTIVELY SUPPORTING PRODUCTION SYSTEMS</div>
+    </div>
+    <div class="about-text reveal">
+      <p>I'm an <strong>IT Application Support</strong> specialist based in Klang, Selangor, currently administering ERP systems at <strong>Zitron (M) Enterprise Sdn Bhd</strong> — keeping data accurate, workflows tested, and stakeholders unblocked.</p>
+      <p>Before that, I spent almost three years at <strong>Ninja Van Logistics</strong> auditing and onboarding shipper API integrations, closing the gap between "it should work" and "it works reliably" for e-commerce partners at scale.</p>
+      <p>I like the part of the job most people skip: writing down what broke, why, and how it got fixed — because that's what actually makes a system easier to support next time.</p>
+      <div class="stat-grid">
+        <div class="stat-card"><div class="num">3+</div><div class="lbl">Years in support</div></div>
+        <div class="stat-card"><div class="num">4</div><div class="lbl">Organisations</div></div>
+        <div class="stat-card"><div class="num">2</div><div class="lbl">Languages fluent</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== Skills ===== -->
-<section class="section section-alt" id="skills">
-  <div class="section-inner">
-    <p class="eyebrow mono">02 · skills</p>
-    <h2 class="section-title">Skills</h2>
+<section id="experience">
+  <div class="eyebrow">02 / Experience</div>
+  <h2 class="section-title reveal">Process log</h2>
+  <p class="section-sub reveal">Every role, logged like a system process. Expand one to see what actually ran.</p>
 
-    <div class="skills-grid">
-      <div class="skill-group">
-        <h3 class="skill-group-title">Technical</h3>
-        <div class="tag-list">
-          <span class="tag mono">ERP Systems</span>
-          <span class="tag mono">API Integration</span>
-          <span class="tag mono">System Testing</span>
-          <span class="tag mono">IT Audit</span>
-          <span class="tag mono">Technical Support</span>
-          <span class="tag mono">Database Basics</span>
-        </div>
-      </div>
+  <div class="proc-list reveal">
 
-      <div class="skill-group">
-        <h3 class="skill-group-title">Tools &amp; Software</h3>
-        <div class="tag-list">
-          <span class="tag mono">Google Workspace</span>
-          <span class="tag mono">Microsoft Excel</span>
-          <span class="tag mono">ERP Platforms</span>
-          <span class="tag mono">E-Commerce Platforms</span>
-          <span class="tag mono">Canva</span>
-          <span class="tag mono">Figma (Handoff)</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <h3 class="skill-group-title">Professional</h3>
-        <div class="tag-list">
-          <span class="tag mono">Effective Communication</span>
-          <span class="tag mono">Problem Solving</span>
-          <span class="tag mono">Time Management</span>
-          <span class="tag mono">Attention to Detail</span>
-          <span class="tag mono">Collaboration</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Experience ===== -->
-<section class="section" id="experience">
-  <div class="section-inner">
-    <p class="eyebrow mono">03 · experience</p>
-    <h2 class="section-title">Work Experience</h2>
-
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <div class="timeline-meta mono">Nov 2025 — Feb 2026</div>
-        <div class="timeline-content">
-          <h3>IT Application Support</h3>
-          <p class="timeline-org">Zitron (M) Enterprise Sdn Bhd</p>
+    <div class="proc open">
+      <button class="proc-head" aria-expanded="true">
+        <span class="proc-id">PID 04</span>
+        <span class="proc-main">
+          <span class="proc-role">IT Application Support</span>
+          <span class="proc-meta"><span>Zitron (M) Enterprise Sdn Bhd</span></span>
+        </span>
+        <span class="proc-dates">Nov 2025 — Present</span>
+        <span class="status-pill active"><span class="dot"></span>Active</span>
+        <svg class="proc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="proc-body">
+        <div class="proc-body-in">
           <ul>
             <li>Administer and support the company's ERP system, ensuring system availability, data accuracy, and smooth daily operations.</li>
-            <li>Provide first-level IT application support to internal stakeholders via phone, email, and chat, resolving issues efficiently and escalating when needed.</li>
+            <li>Provide first-level IT application support to internal stakeholders via phone, email, and chat — resolving issues efficiently and escalating when needed.</li>
             <li>Conduct ERP functional and process testing to validate workflows, identify defects, and ensure system reliability before and after updates.</li>
             <li>Document test cases, system issues, and resolution outcomes to support troubleshooting, audits, and continuous system improvement.</li>
           </ul>
         </div>
       </div>
+    </div>
 
-      <div class="timeline-item">
-        <div class="timeline-meta mono">Nov 2022 — Aug 2025</div>
-        <div class="timeline-content">
-          <h3>Sales Enabler Executive</h3>
-          <p class="timeline-org">Ninja Van Logistics Sdn Bhd</p>
+    <div class="proc">
+      <button class="proc-head" aria-expanded="false">
+        <span class="proc-id">PID 03</span>
+        <span class="proc-main">
+          <span class="proc-role">Sales Enabler Executive</span>
+          <span class="proc-meta"><span>Ninja Van Logistics Sdn Bhd</span></span>
+        </span>
+        <span class="proc-dates">Nov 2022 — Aug 2025</span>
+        <span class="status-pill done"><span class="dot"></span>Completed</span>
+        <svg class="proc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="proc-body">
+        <div class="proc-body-in">
           <ul>
-            <li>Executed BAU operations, including IT audits and technical support, ensuring smooth daily operations for shippers and internal stakeholders.</li>
+            <li>Executed BAU operations, including IT audits and technical support, to ensure smooth daily operations for shippers and internal stakeholders.</li>
             <li>Facilitated shipper API integrations by conducting IT audits and streamlining onboarding, reducing integration delays and errors.</li>
             <li>Provided technical support via WhatsApp, resolving e-commerce platform integration issues promptly and improving shipper satisfaction.</li>
-            <li>Delivered training sessions on a newly developed integration website, increasing internal adoption and operational efficiency.</li>
+            <li>Delivered training sessions on the newly developed integration website, increasing internal adoption and operational efficiency.</li>
             <li>Collaborated with regional teams to review and resolve duplicate account cases, ensuring compliance and timely approval of API access.</li>
           </ul>
         </div>
       </div>
+    </div>
 
-      <div class="timeline-item">
-        <div class="timeline-meta mono">Sept 2022 — Oct 2022</div>
-        <div class="timeline-content">
-          <h3>Telemarketing Executive</h3>
-          <p class="timeline-org">UTS Sdn Bhd</p>
+    <div class="proc">
+      <button class="proc-head" aria-expanded="false">
+        <span class="proc-id">PID 02</span>
+        <span class="proc-main">
+          <span class="proc-role">Telemarketing Executive</span>
+          <span class="proc-meta"><span>UTS Sdn Bhd</span></span>
+        </span>
+        <span class="proc-dates">Sept 2022 — Oct 2022</span>
+        <span class="status-pill done"><span class="dot"></span>Completed</span>
+        <svg class="proc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="proc-body">
+        <div class="proc-body-in">
           <ul>
-            <li>Promoted affordable medical card insurance solutions, increasing product awareness and lead engagement.</li>
+            <li>Promoted affordable medical card insurance solutions to a broad customer base, increasing product awareness and lead engagement.</li>
             <li>Educated prospective customers on long-term financial and health protection, building trust through clear communication.</li>
             <li>Managed customer objections professionally, applying persuasive techniques to improve conversion rates.</li>
           </ul>
         </div>
       </div>
+    </div>
 
-      <div class="timeline-item">
-        <div class="timeline-meta mono">Mar 2022 — Aug 2022</div>
-        <div class="timeline-content">
-          <h3>Backend System Developer Intern</h3>
-          <p class="timeline-org">Internship</p>
+    <div class="proc">
+      <button class="proc-head" aria-expanded="false">
+        <span class="proc-id">PID 01</span>
+        <span class="proc-main">
+          <span class="proc-role">Backend System Developer Intern</span>
+          <span class="proc-meta"><span>Internship</span></span>
+        </span>
+        <span class="proc-dates">Mar 2022 — Aug 2022</span>
+        <span class="status-pill done"><span class="dot"></span>Completed</span>
+        <svg class="proc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="proc-body">
+        <div class="proc-body-in">
           <ul>
-            <li>Improved administration panel usability by enhancing UI components for a more intuitive user experience.</li>
-            <li>Designed and implemented database tables to support system functionality and data integrity.</li>
+            <li>Improved administration panel usability by enhancing UI components for a more intuitive, efficient experience.</li>
+            <li>Designed and implemented database tables to support system functionality, data integrity, and efficient data management.</li>
             <li>Developed administration panel features based on Figma designs, ensuring accurate implementation of functional and visual requirements.</li>
           </ul>
         </div>
       </div>
-
     </div>
+
   </div>
 </section>
 
-<!-- ===== Education ===== -->
-<section class="section section-alt" id="education">
-  <div class="section-inner">
-    <p class="eyebrow mono">04 · education</p>
-    <h2 class="section-title">Education</h2>
+<section id="skills">
+  <div class="eyebrow">03 / Skills</div>
+  <h2 class="section-title reveal">What's installed</h2>
+  <p class="section-sub reveal">Tools and strengths in active use, grouped by function.</p>
 
-    <div class="edu-grid">
-      <div class="edu-card">
-        <span class="mono edu-date">Expected Aug 2026</span>
-        <h3>Master's in Information Technology</h3>
-        <p>Universiti Teknologi MARA (UiTM)</p>
-      </div>
-      <div class="edu-card">
-        <span class="mono edu-date">Dec 2022</span>
-        <h3>Bachelor of Information Technology (Business Computing), Hons</h3>
-        <p>Universiti Malaysia Sabah Kampus Antarabangsa Labuan (UMSKAL)</p>
-      </div>
-      <div class="edu-card">
-        <span class="mono edu-date">Aug 2018</span>
-        <h3>Matriculation Certificate — Computer Science</h3>
-        <p>Kolej Matrikulasi Johor (KMJ)</p>
-      </div>
-      <div class="edu-card">
-        <span class="mono edu-date">Dec 2016</span>
-        <h3>Sijil Pelajaran Malaysia</h3>
-        <p>SM Sains Banting (BASIS)</p>
+  <div class="skills-wrap reveal">
+    <div>
+      <div class="skill-group-title">Systems & Software</div>
+      <div class="chip-row">
+        <span class="chip">ERP Systems <span class="bar"><span style="width:92%"></span></span></span>
+        <span class="chip">API Integrations <span class="bar"><span style="width:88%"></span></span></span>
+        <span class="chip">Google Workspace <span class="bar"><span style="width:90%"></span></span></span>
+        <span class="chip">Microsoft Excel <span class="bar"><span style="width:85%"></span></span></span>
+        <span class="chip">E-Commerce Platforms <span class="bar"><span style="width:82%"></span></span></span>
+        <span class="chip">Canva <span class="bar"><span style="width:75%"></span></span></span>
       </div>
     </div>
-
-    <div class="achievements">
-      <h3 class="achievements-title">Achievements &amp; Involvement</h3>
-      <ul class="achievements-list">
-        <li><strong>Dean's List Award</strong> — MSc Information Technology, Oct 2024</li>
-        <li><strong>Social Media Executive Committee (EXCO)</strong> — MSc IT Club, Universiti Teknologi MARA (UiTM)</li>
-      </ul>
+    <div>
+      <div class="skill-group-title">Core Strengths</div>
+      <div class="core-grid">
+        <div class="core-card"><div class="ic">01</div><div class="cl">Effective Communication</div></div>
+        <div class="core-card"><div class="ic">02</div><div class="cl">Problem Solving</div></div>
+        <div class="core-card"><div class="ic">03</div><div class="cl">Time Management</div></div>
+        <div class="core-card"><div class="ic">04</div><div class="cl">Attention to Detail</div></div>
+        <div class="core-card"><div class="ic">05</div><div class="cl">Collaboration & Teamwork</div></div>
+        <div class="core-card"><div class="ic">06</div><div class="cl">Technical Support & IT Audit</div></div>
+      </div>
     </div>
-  </div>
-</section>
-
-<!-- ===== Projects ===== -->
-<section class="section" id="projects">
-  <div class="section-inner">
-    <p class="eyebrow mono">05 · projects</p>
-    <h2 class="section-title">Projects &amp; Key Work</h2>
-    <p class="section-sub">Selected initiatives from my day-to-day work in application support and technical operations.</p>
-
-    <div class="projects-grid">
-
-      <article class="project-card">
-        <div class="project-top">
-          <h3>ERP Testing &amp; Support Framework</h3>
-          <span class="project-link-empty mono">internal project</span>
-        </div>
-        <p>Built a repeatable process for validating ERP workflows before and after system updates —
-        covering functional testing, defect logging, and resolution documentation — to reduce
-        post-update incidents and speed up troubleshooting.</p>
-        <div class="tag-list">
-          <span class="tag mono">ERP</span>
-          <span class="tag mono">QA Testing</span>
-          <span class="tag mono">Documentation</span>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <div class="project-top">
-          <h3>Shipper API Integration Onboarding</h3>
-          <span class="project-link-empty mono">internal project</span>
-        </div>
-        <p>Streamlined the onboarding process for shippers integrating via API by running structured
-        IT audits, cutting integration delays and errors, and delivering training on a new
-        integration website to boost adoption.</p>
-        <div class="tag-list">
-          <span class="tag mono">API</span>
-          <span class="tag mono">IT Audit</span>
-          <span class="tag mono">Onboarding</span>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <div class="project-top">
-          <h3>Admin Panel UI Enhancement</h3>
-          <span class="project-link-empty mono">internal project</span>
-        </div>
-        <p>Rebuilt key admin panel components from Figma designs and restructured supporting
-        database tables, improving usability and data integrity for internal system users.</p>
-        <div class="tag-list">
-          <span class="tag mono">UI Development</span>
-          <span class="tag mono">Database Design</span>
-          <span class="tag mono">Figma</span>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===== Contact ===== -->
-<section class="section section-alt" id="contact">
-  <div class="section-inner">
-    <p class="eyebrow mono">06 · contact</p>
-    <h2 class="section-title">Get In Touch</h2>
-    <p class="section-sub">Open to application support and systems-focused opportunities — feel free to reach out.</p>
-
-    <div class="contact-grid">
-      <a href="mailto:aisyahbakar24@outlook.com" class="contact-card">
-        <span class="contact-label mono">email</span>
-        <span class="contact-value">aisyahbakar24@outlook.com</span>
-      </a>
-      <a href="tel:+60133133063" class="contact-card">
-        <span class="contact-label mono">phone</span>
-        <span class="contact-value">+60 13 313 3063</span>
-      </a>
-      <a href="https://www.linkedin.com/in/siti-aisyah-abu-bakar-9b0b2521b/" target="_blank" rel="noopener" class="contact-card">
-        <span class="contact-label mono">linkedin</span>
-        <span class="contact-value">siti-aisyah-abu-bakar</span>
-      </a>
-      <div class="contact-card contact-card-static">
-        <span class="contact-label mono">location</span>
-        <span class="contact-value">Klang, Selangor, Malaysia</span>
+    <div>
+      <div class="skill-group-title">Languages</div>
+      <div class="chip-row">
+        <span class="chip">Malay — Native</span>
+        <span class="chip">English — Fluent</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== Footer ===== -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <a href="#top" class="nav-logo">SA<span class="dot">.</span></a>
-      <p class="mono footer-tag">application_support · always_online</p>
+<section id="education">
+  <div class="eyebrow">04 / Education & Achievements</div>
+  <h2 class="section-title reveal">Credentials on file</h2>
+  <p class="section-sub reveal">Academic record and milestones, most recent first.</p>
+  <div class="split-grid">
+    <div>
+      <div class="skill-group-title">Education</div>
+      <div class="reveal">
+        <div class="edu-item">
+          <div class="edu-deg">Masters in Information Technology</div>
+          <div class="edu-school">Universiti Teknologi MARA (UiTM)</div>
+          <div class="edu-date">Expected completion: Aug 2026</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-deg">B.IT (Business Computing), Hons</div>
+          <div class="edu-school">Universiti Malaysia Sabah, Labuan (UMSKAL)</div>
+          <div class="edu-date">Dec 2022</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-deg">Matriculation Certificate — Computer Science</div>
+          <div class="edu-school">Kolej Matrikulasi Johor (KMJ)</div>
+          <div class="edu-date">Aug 2018</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-deg">Sijil Pelajaran Malaysia</div>
+          <div class="edu-school">SM Sains Banting (BASIS)</div>
+          <div class="edu-date">Dec 2016</div>
+        </div>
+      </div>
     </div>
-
-    <div class="footer-links">
-      <a href="mailto:aisyahbakar24@outlook.com">Email</a>
-      <a href="https://www.linkedin.com/in/siti-aisyah-abu-bakar-9b0b2521b/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="tel:+60133133063">Phone</a>
+    <div>
+      <div class="skill-group-title">Achievements & Involvement</div>
+      <div class="badge-list reveal">
+        <div class="badge">
+          <div class="icon">★</div>
+          <div><div class="t">Dean's List Award</div><div class="d">MSc Information Technology — Oct 2024</div></div>
+        </div>
+        <div class="badge">
+          <div class="icon">◆</div>
+          <div><div class="t">EXCO, Social Media</div><div class="d">MSc IT Club, Universiti Teknologi MARA (UiTM)</div></div>
+        </div>
+      </div>
     </div>
   </div>
-  <p class="footer-copy">© <span id="year"></span> Siti Aisyah Binti Abu Bakar. All rights reserved.</p>
+</section>
+
+<section id="contact">
+  <div class="eyebrow">05 / Contact</div>
+  <h2 class="section-title reveal">Open a ticket</h2>
+  <p class="section-sub reveal">The fastest ways to reach me — tap to copy or open directly.</p>
+  <div class="contact-grid reveal">
+    <div class="contact-card">
+      <div class="ic">✆</div>
+      <div><div class="lbl">Phone</div><div class="val">+60 13 313 3063</div></div>
+      <button class="copy-btn" data-copy="+60133133063" aria-label="Copy phone number">⧉</button>
+    </div>
+    <div class="contact-card">
+      <div class="ic">✉</div>
+      <div><div class="lbl">Email</div><div class="val">aisyahbakar24@outlook.com</div></div>
+      <button class="copy-btn" data-copy="aisyahbakar24@outlook.com" aria-label="Copy email address">⧉</button>
+    </div>
+    <a class="contact-card" href="https://www.linkedin.com/in/siti-aisyah-binti-abu-bakar" target="_blank" rel="noopener">
+      <div class="ic">in</div>
+      <div><div class="lbl">LinkedIn</div><div class="val">Siti Aisyah Binti Abu Bakar</div></div>
+    </a>
+    <div class="contact-card">
+      <div class="ic">⌖</div>
+      <div><div class="lbl">Location</div><div class="val">Klang, Selangor, Malaysia</div></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div>© 2026 Siti Aisyah Binti Abu Bakar</div>
+  <div class="sig">built as a systems-console resume — status: online</div>
 </footer>
 
-<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+<div class="toast" id="toast">Copied to clipboard</div>
 
-<script src="script.js"></script>
+<script>
+(function(){
+  // Progress bar
+  const bar = document.getElementById('progressBar');
+  function updateProgress(){
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    bar.style.width = (isFinite(scrolled) ? scrolled : 0) + '%';
+  }
+  document.addEventListener('scroll', updateProgress, {passive:true});
+  updateProgress();
+
+  // Boot terminal text
+  const bootLines = ['$ initializing profile', '$ loading experience.log', '$ mounting skills/', '$ ready.'];
+  let bi = 0;
+  const bootEl = document.getElementById('bootText');
+  setInterval(()=>{
+    bi = (bi+1) % bootLines.length;
+    bootEl.textContent = bootLines[bi];
+  }, 2200);
+
+  // Role rotator (typewriter)
+  const roles = ['Software Engineer', 'Creative Problem Solver', 'Builder of Digital Products'];
+  const roleEl = document.getElementById('roleRotator');
+  let ri = 0, ci = 0, deleting = false;
+  function typeLoop(){
+    const word = roles[ri];
+    if(!deleting){
+      ci++;
+      roleEl.textContent = word.slice(0, ci);
+      if(ci === word.length){ deleting = true; setTimeout(typeLoop, 1400); return; }
+    } else {
+      ci--;
+      roleEl.textContent = word.slice(0, ci);
+      if(ci === 0){ deleting = false; ri = (ri+1) % roles.length; }
+    }
+    setTimeout(typeLoop, deleting ? 35 : 65);
+  }
+  typeLoop();
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:0.12});
+  revealEls.forEach(el=>io.observe(el));
+
+  // Skill bar fill on view
+  const chipBars = document.querySelectorAll('.chip .bar span');
+  chipBars.forEach(b=>{ const w = b.style.width; b.style.width = '0%'; b.dataset.target = w; });
+  const barIo = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.querySelectorAll('.chip .bar span').forEach(b=> b.style.width = b.dataset.target);
+        barIo.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.2});
+  document.querySelectorAll('.chip-row').forEach(row=>barIo.observe(row));
+
+  // Nav dock active state
+  const navLinks = document.querySelectorAll('.navdock a');
+  const sections = [...navLinks].map(a=> document.querySelector(a.getAttribute('href')));
+  const navIo = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      const idx = sections.indexOf(entry.target);
+      if(entry.isIntersecting && idx !== -1){
+        navLinks.forEach(l=>l.classList.remove('active'));
+        navLinks[idx].classList.add('active');
+      }
+    });
+  }, {threshold:0.5});
+  sections.forEach(s=> s && navIo.observe(s));
+
+  // Process log expand/collapse
+  document.querySelectorAll('.proc-head').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const proc = btn.closest('.proc');
+      const isOpen = proc.classList.contains('open');
+      proc.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
+
+  // Copy buttons
+  const toast = document.getElementById('toast');
+  let toastTimer;
+  document.querySelectorAll('.copy-btn').forEach(btn=>{
+    btn.addEventListener('click', async ()=>{
+      const val = btn.dataset.copy;
+      try{
+        await navigator.clipboard.writeText(val);
+      }catch(e){
+        const ta = document.createElement('textarea');
+        ta.value = val; document.body.appendChild(ta); ta.select();
+        document.execCommand('copy'); document.body.removeChild(ta);
+      }
+      btn.classList.add('copied');
+      toast.textContent = 'Copied: ' + val;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(()=>{ toast.classList.remove('show'); btn.classList.remove('copied'); }, 1800);
+    });
+  });
+})();
+</script>
 </body>
 </html>
